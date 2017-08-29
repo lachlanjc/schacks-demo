@@ -1,0 +1,16 @@
+{
+  "name": "schacks-demo",
+  "version": "1.0.0",
+  "description": "Demo for Hack Club State High",
+  "main": "server.js",
+  "author": "Lachlan Campbell",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.0.0-alpha.2",
+    "body-parser": "^1.17.2"
+  },
+  "license": "MIT"
+}

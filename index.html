@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hack Club Demo</title>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#ff4949">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      color: #fff;
+      font-family: SFMono-Regular, Menlo, monospace;
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 0;
+      transition: background-color 1s;
+    }
+
+    header {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header svg {
+      margin-right: 1rem;
+    }
+
+    h3 {
+      font-weight: 400 !important;
+      font-size: 8rem;
+      margin: 0;
+      width: 100%;
+      position: absolute;
+      top: calc(50vh - 4rem);
+    }
+
+    footer {
+      font-family: -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Helvetica Neue', Roboto, 'Segoe UI', sans-serif;
+      background-color: rgba(0,0,0,.25);
+      width: 100%;
+      font-size: 3rem;
+      padding: 1rem;
+      position: absolute;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header><svg viewbox="0 0 32 32" width="72" height="72"><path fill="currentcolor" d="M16,32 C7.163444,32 0,24.836556 0,16 C0,7.163444 7.163444,0 16,0 C24.836556,0 32,7.163444 32,16 C32,24.836556 24.836556,32 16,32 Z M18.4,10 L18,8 L9,8 L9,25 L11,25 L11,18 L16.6,18 L17,20 L24,20 L24,10 L18.4,10 Z M16.2,15.3 L15.5,16 L12.5,13 L15.5,10 L16.2,10.7 L13.9,13 L16.2,15.3 Z M18.3,17.3 L20.6,15 L18.3,12.7 L19,12 L22,15 L19,18 L18.3,17.3 Z"></path></svg><span>Hack Club</span></header>
+  <h3>#ffffff</h3>
+  <footer>Text a color to <strong>(717) 447-5022</strong></footer>
+
+  <script>
+  function update() {
+  $.get('/color', data => {
+    var colors = {
+      black: '#000000',
+      blue: '#0000FF',
+      cyan: '#00FFFF',
+      green: '#008000',
+      teal: '#008080',
+      turquoise: '#40E0D0',
+      indigo: '#4B0082',
+      gray: '#808080',
+      purple: '#800080',
+      brown: '#A52A2A',
+      tan: '#D2B48C',
+      violet: '#EE82EE',
+      beige: '#F5F5DC',
+      fuchsia: '#FF00FF',
+      gold: '#FFD700',
+      magenta: '#FF00FF',
+      orange: '#FFA500',
+      pink: '#FFC0CB',
+      red: '#FF4949',
+      white: '#FFFFFF',
+      yellow: '#FFFF00'
+    }
+    var color = colors[data.toLowerCase() || 'reset']
+    document.body.style.backgroundColor = color
+    $('h3').text(data)
+  })
+}
+setInterval(update, 1000)
+update()
+</script>
+</body>
+</html>
